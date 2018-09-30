@@ -4,28 +4,32 @@ import java.text.*;
 import java.math.*;
 import java.util.regex.*;
 
-public class Solution {
+public class Review {
 
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) {
         /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int t = Integer.parseInt(br.readLine());
-        while (t>0) {
-            String s = br.readLine();
-            StringBuilder odd = new StringBuilder("");
-            StringBuilder even = new StringBuilder("");
-            
-            for (int i=0;i<s.length();i++) {
-                if (i%2 == 0) {
-                    odd.append(String.valueOf(s.charAt(i)));
+        Scanner scan = new Scanner(System.in);
+        int T =  Integer.parseInt(scan.nextLine());
+        String[] str = new String[T];
+        for(int k=0;k<T;k++)
+        {
+            str[k] = scan.nextLine();
+        }
+        for(int i=0;i<T;i++)
+        {
+            StringBuilder even =new StringBuilder("");
+            StringBuilder odd =new StringBuilder("");
+            for(int j=0;j<str[i].length();j++)
+            {
+                if((j%2)==0)
+                {
+                    even.append(String.valueOf(str[i].charAt(j)));
                 }
-                else {
-                    even.append(String.valueOf(s.charAt(i)));
+                else{
+                    odd.append(String.valueOf(str[i].charAt(j)));
                 }
             }
-            System.out.println(odd.toString() + " " + even.toString());
-            t--;
+            System.out.println(even.toString() + " " + odd.toString());
         }
-        
     }
 }
